@@ -20,7 +20,6 @@
     mobileno int
 );
 
-
 -- To describe data
 
 8. desc user;
