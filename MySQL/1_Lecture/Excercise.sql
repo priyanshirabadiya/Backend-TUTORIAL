@@ -1,4 +1,6 @@
 -- My sql does not support number and varchar2 for that you need to use int , decimal and for string varchar instead of number and varchar2
+-- Create tables and insert data
+
 
 -- 1) CLIENT_MASTER Table
 
@@ -11,10 +13,8 @@ create table CLIENT_MASTER (
     Baldue decimal(10 , 2)
 );
 
-
 insert into CLIENT_MASTER values 
 ("C0001" , "Ivan Bayoss" , "Mumbai" , 40054 , "Maharastra" , 15000);
-
 
 insert into CLIENT_MASTER values 
 ("C0002" , "Mamta Muzumdar" , "Madras" , 780001 , "Tamil nadu" , 0);
@@ -27,7 +27,6 @@ insert into CLIENT_MASTER values
 ("C0005" , "Hansel Colaco" , "Mumbai" , 400060  , "Maharatra" , 2000),
 ("C0006" , "Deepak sharma" , "Manglore" , 560050 , 'Karnataka' , 0) 
 ;  
-
 
 -- 2)PRODUCT_MASTER TABLE
 
@@ -49,7 +48,6 @@ INSERT INTO PRODUCT_MASTER values
 ("P08865" , 'Skirts' , 5 , 'Piece' , 75 , 30 , 450 , 300 )
 ;
 
-
 -- 3) SALESMAN_MASTER Table
 CREATE TABLE SALESMAN_MASTER (SALEMANNO VARCHAR(10) , SALESMANNAME VARCHAR(20) , ADDRESS1 VARCHAR(30) , ADDRESS2 VARCHAR(30) , CITY VARCHAR(20) , PINCODE INT , STATE VARCHAR(20) , SALAMT decimal(8 ,2) , TGTTOGET decimal(6,2) , YTDSALES decimal(6,2) , REMARKS VARCHAR(60));
 
@@ -60,7 +58,5 @@ INSERT INTO SALESMAN_MASTER values
 INSERT INTO SALESMAN_MASTER values 
 ('S0002' , 'Omkar' , '65' , 'Nariman' , 'Mumbai' , 400001 , 'Maharastra'  , 3000 , 200  , 100 , 'Good'),
 ('S0003' , 'Raj' , 'P-7' , 'Bandra' , 'Mumbai' , 400032 , 'Maharastra' , 3000 , 200 , 100 , 'Good'),
-('S0004' , 'Ashish' , 'A/5' , 'Juhu' , 'Mumbai' , 400044 , 'Maharastra' , 3500 , 200 , 150 , 'Good')
-;
- 
+('S0004' , 'Ashish' , 'A/5' , 'Juhu' , 'Mumbai' , 400044 , 'Maharastra' , 3500 , 200 , 150 , 'Good');
 

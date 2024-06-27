@@ -1,7 +1,7 @@
 1. \sql
 2. \connect root@localhost:3306
 
-3.  show databases;
+3. show databases;
 4. create database node;
 -- If you have not any database to work then you can create new database.
 
@@ -20,7 +20,7 @@
     mobileno int
 );
 
--- To describe data
+-- To describe data 
 
 8. desc user;
 9. describe user;
