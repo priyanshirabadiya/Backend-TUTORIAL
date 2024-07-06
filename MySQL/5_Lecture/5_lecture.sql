@@ -33,7 +33,7 @@ create table foreignmetod1(
     uniquecode varchar(10) ,
     name varchar(20),
     address varchar(50),
-    foreign key uniquecode references SALESMAN_MASTERFORIGN(SALEMANNO)
+    foreign key (uniquecode) references SALESMAN_MASTERFORIGN(SALEMANNO)
 );
 
 -- 3) using constraint : give constrain name as you want and if you don't give any constrain names then it will be taken by it self constrain name as above
@@ -43,7 +43,7 @@ create table foreignmetod1(
     uniquecode varchar(10) ,
     name varchar(20),
     address varchar(50),
-    constraint fk_foreign foreign key uniquecode references SALESMAN_MASTERFORIGN(SALEMANNO)
+    constraint fk_foreign foreign key (uniquecode) references SALESMAN_MASTERFORIGN(SALEMANNO)
 );
 
 -- in our output

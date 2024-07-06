@@ -82,7 +82,9 @@ select * from customers where contactFirstName like '%e%';
 
 select officeCode , jobTitle ,count(jobTitle) from employees group by officeCode ;
 
+-- 20. List out the maximum credit limit of customers belongs to different states
 
+select distinct state , max(creditlimit) as maximumlimit from customers group by state ;
 
 
 
