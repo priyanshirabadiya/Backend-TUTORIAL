@@ -1,3 +1,11 @@
+// MongoDB is the most popular NoSQL databases and is widely adopted for storing and managing both structured and unstructured data
+// Mongo db is fully case-sencitive. 
+
+// Crud operation : Create operation
+// create database
+
+// use node5to7;
+
 // 1st create collection
 
 db.createCollection("users");
@@ -5,34 +13,37 @@ db.createCollection("users");
 // insert data(single)
 
 db.users.insertOne({
-    "name": "priyanshi rabadiya",
-    "age": 22,
+    "name": "john Doel",
+    "age": 24,
     "email": "priyanshi@gmail.com"
-});
+})
+
+// insert data(multiple)
 
 db.users.insertMany([
     {
-        "name": 'john Doe',
+        "name": "jolly Doel",
         "age": 21,
-        "gender": "male"
+        "gender" : "Female",
+        "email": "jolly@gmail.com"
     },
     {
-        "name": "jolly peter",
-        "age": 34,
-        "email": "jolly@gmail.com",
-        "hobbies": ["cricket", "holleyball", 'football']
+        "name" : "virat kohli",
+        "age" : 35 ,
+        "email" : "virat@gmail.com",
+        "hobbies" : ['cricket' , 'music' , 'dancing']
     },
     {
-        "name": "priyanka chopra",
-        "gender": "female",
-        "qualities": {
-            "first": "Miss world",
-            "second": "Bolleywood actress",
-            "third": "Holleywood actress"
+        "name" : "anushka sharma",
+        "gender" : "Female",
+        "movies" : {
+            "super_duper" : "P_K",
+            "most_famous" : "Sultan",
+            "floop" : "Sui-dhaga"
         }
     }
+    
 ])
-
 
 // Tables from pdf
 
@@ -59,7 +70,5 @@ db.Client_Master.insertMany([
 ])
 
 
-db.users.find(); 
-
-// db.users.
+db.users.find({}) ; 
 
