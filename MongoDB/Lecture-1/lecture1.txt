@@ -1,0 +1,19 @@
+1] cmd  => mongod
+
+ 
+2] set in localdisk c:
+1. create folder data
+2. in data crete db folder 
+
+
+again in cmd
+
+3] mongod
+
+4] close cmd
+
+5] mongosh
+
+
+
+
