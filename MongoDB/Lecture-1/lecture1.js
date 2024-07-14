@@ -24,25 +24,25 @@ db.users.insertMany([
     {
         "name": "jolly Doel",
         "age": 21,
-        "gender" : "Female",
+        "gender": "Female",
         "email": "jolly@gmail.com"
     },
     {
-        "name" : "virat kohli",
-        "age" : 35 ,
-        "email" : "virat@gmail.com",
-        "hobbies" : ['cricket' , 'music' , 'dancing']
+        "name": "virat kohli",
+        "age": 35,
+        "email": "virat@gmail.com",
+        "hobbies": ['cricket', 'music', 'dancing']
     },
     {
-        "name" : "anushka sharma",
-        "gender" : "Female",
-        "movies" : {
-            "super_duper" : "P_K",
-            "most_famous" : "Sultan",
-            "floop" : "Sui-dhaga"
+        "name": "anushka sharma",
+        "gender": "Female",
+        "movies": {
+            "super_duper": "P_K",
+            "most_famous": "Sultan",
+            "floop": "Sui-dhaga"
         }
     }
-    
+
 ])
 
 // Tables from pdf
@@ -66,9 +66,9 @@ db.Client_Master.insertMany([
         "State": "Maharastra",
         "BalDue": 15000
     },
-    "C0002" , "Mamta Muzumdar" , "Madras" , 780001 , "Tamil nadu" , 0
+    "C0002", "Mamta Muzumdar", "Madras", 780001, "Tamil nadu", 0
 ])
 
 
-db.users.find({}) ; 
+db.users.find({});
 
