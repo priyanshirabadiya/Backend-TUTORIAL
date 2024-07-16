@@ -1,7 +1,7 @@
 // Crud operation : retrive , update and Delete operations
 
 // show dbs;
-
+// If database is already exist
 // use "node5to7";
 
 // show collections;
@@ -59,65 +59,21 @@ db.users.updateMany(
 // db.users.deleteOne({filter})
 
 // Take id form objectid
-db.users.deleteOne({_id :  ObjectId('668f92e522d6644ad8cc3210')});
+db.users.deleteOne({ _id: ObjectId('668f92e522d6644ad8cc3210') });
 
-db.users.deleteMany({'gender' : "Female" })
+db.users.deleteMany({ 'gender': "Female" })
 
 
 
 // Drop operation 
 
+// Drop collection
 db.users.drop()
+// Drop Database
 db.node5to7.drop();
 db.dropDatabase();
 
 
-
-
-
-// other MongoDB Methods
-
-// use mongodbmethods;
-// db.createCollection("students");
-
-
-// Bulk method
-
-
-var bulk = db.students.initializeOrderedBulkOp() ;
-bulk.insert({
-    "fitst_name" : "priyanshi",
-    "last_name"  : "rabadiya"
-    });
-    
-bulk.insert({
-    "first_name" : "krishna",
-    "last_name" : "rabadiya"
-});
-
-
-bulk.execute();
-
-db.students.find({"fitst_name" : "priyanshi" });
-
-db.students.find({}).forEach(print);
-
-
-// Bultwrite method
-
-
-db.students.bulkWrite([
-    {insertOne : { document : { first_name : "shubham" , last_name : "rabadiya"  } } }
-    ])
-
-
-db.students.find({})
-  .projection({})
-  .sort({_id:-1})
-  .limit(100)
-  .forEach(printjson)
-
-db.students.updateOne({"first_name" : "shubham" },{$set:{"first_name" : "shubh" }});
 
 
 

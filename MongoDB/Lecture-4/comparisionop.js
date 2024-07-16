@@ -27,13 +27,18 @@ db.Mock2.find({ "id": { $lt: 5 } })
 // lessthan equel to
 db.Mock2.find({ "id": { $lte: 5 } })
 
+// in 
+db.Mock2.find({"first_name" : {$in : ["Cull" , "Ruddy" ]} })
+
+// nin : not in
+db.Mock2.find({"first_name" : {$nin : ["Cull" , "Ruddy" ]} })
+
 
 // LOGICAL OPERATOR
 
 // and
 
 db.Mock2.find({ $and: [{ con1 }, { con2 }] })
-
 db.Mock2.find({ $and: [{ gender: "Male" }, { id: 5 }] })
 
 // db.Mock2.find({$and : [{gender : "Male"} , {id : 5} , {id : 3} ]})   // this will give an empty data set if you need this 2nd then use above example
@@ -52,14 +57,13 @@ db.Mock2.find({ $or : [{id : 1} , {id : 5}]});   // give 2 records
 db.Mock2.find({$nor : [{id : 1} , {id : 2} ]})
 db.Mock2.find({$nor : [{id : 1} , {id : 8} , {"gender" : "Male" }]})
 
-
 // not 
 db.Mock2.find({"gender" : {$not :{ $eq :  "Female"}}})
 db.Mock2.find({"id" : {$not : {$gt : 5}}})
 
 
-// in 
-db.Mock2.find({"first_name" : {$in : ["Cull" , "Ruddy" ]} })
 
-// nin : not in
-db.Mock2.find({"first_name" : {$nin : ["Cull" , "Ruddy" ]} })
+
+
+
+
