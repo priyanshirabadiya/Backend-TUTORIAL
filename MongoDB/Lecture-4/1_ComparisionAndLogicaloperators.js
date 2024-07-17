@@ -48,7 +48,6 @@ db.Mock2.find({
     $or: [{ id: 5 }, { id: 3 }]
 })
 
-
 // or 
 db.Mock2.find({ $or : [{gender : "Male"} , {id : 5}]});  //give 432 records
 db.Mock2.find({ $or : [{id : 1} , {id : 5}]});   // give 2 records
