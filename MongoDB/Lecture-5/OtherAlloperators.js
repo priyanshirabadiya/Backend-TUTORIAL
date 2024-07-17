@@ -59,7 +59,11 @@ db.table1.find({}).pretty()
 
 db.table1.find({ "fname": "neha" })
 
+// exist method
+
 db.table1.find({ "email": { $exist: true } })
+
+// update documents
 
 db.table1.updateOne(
     { 'fname': 'shubham' },
@@ -79,27 +83,28 @@ db.table1.updateMany(
     { upset: true }
 )
 
+// delete and drop documents
+
 db.table1.deleteOne({ "hobbies": ["coding", "reading", "playing"] })
 
-// db.table1.drop()
-// db.newdatebase.drop()
+db.table1.drop()
+db.newdatebase.drop()
 
 
 // import data from external file show process in lecture 3
 
-// operators  
-// db.table1.findAndModify({query:{"age" : 55} ,update:{ age : 32 }})
+// findAndModify document  
 
+db.table1.findAndModify({query:{"age" : 55} ,update:{ age : 32 }})
 
-
+// Simple find for reminding
 db.table1.find({ "age": { $gt: 5 } })
 
 db.table1.find({ "age": { $in: [15, 30] } })
 
 db.table1.find({ $nor: [{ "gender": "Male" }, { "age": { $gte: 30 } }] })
 
-
-// create new data
+// create new collection
 
 // {
 // 	"_id" : ObjectId("6693c370e198e64b552f4e94"),
@@ -141,32 +146,18 @@ db.table1.find({ $nor: [{ "gender": "Male" }, { "age": { $gte: 30 } }] })
 // 	"salary" : 10000
 // }
 
-
+// bulkWrite
 db.table1.bulkWrite([
     { insertOne: { document: [{ "name": "mansi", "gender": "Female", "cid": 6, "salary": 50000 }] } },
     { updateOne: { filter: { "name": "Deep" }, update: { "name": "Depali" } } }
 ]);
-
+// findOneAndReplace document
 db.table1.findOneAndReplace({ "cid": 2 }, { "name": "jatin", "cid": 17 })
 
 
+// Arithmetic Operator using aggregation
 
-// Arithmetic Operator
-
-// Addition
-
-db.table1.aggregate([
-    { $match: { "gender": { $in: ["Female", "Male"] } } },
-    {
-        $project: {
-            name: 1, gender: 1, salary: {
-                $add:
-                    ["$salary", "$salary"]
-            }
-        }
-    }
-])
-
+// Addition : +
 
 db.table1.aggregate([
     { $match: { "gender": { $in: ["Female", "Male"] } } },
@@ -180,7 +171,20 @@ db.table1.aggregate([
     }
 ])
 
-// subtract
+
+db.table1.aggregate([
+    { $match: { "gender": { $in: ["Female", "Male"] } } },
+    {
+        $project: {
+            name: 1, gender: 1, salary: {
+                $add:
+                    ["$salary", 200]
+            }
+        }
+    }
+])
+
+// subtract : -
 
 db.table1.aggregate([
     { $match: { "gender": { $in: ['Female', "Male"] } } },
@@ -188,21 +192,21 @@ db.table1.aggregate([
 ])
 
 
-// Multiply
+// Multiply : *
 
 db.table1.aggregate([
     { $match: { "gender": { $in: ["Female", "Male"] } } },
     { $project: { name: 1, gender: 1, salary: { $multiply: ["$salary", "$salary"] } } }
 ])
 
-// divide
+// divide : /
 
 db.table1.aggregate([
     { $match: { "gender": { $in: ["Female", "Male"] } } },
     { $project: { name: 1, gender: 1, salary: { $toInt: { $divide: ["$salary", "$salary"] } } } }
 ])
 
-// mod
+// mod : %
 db.table1.aggregate([
     { $match: { "gender": { $in: ["Female", "Male"] } } },
     {
@@ -225,26 +229,29 @@ db.table1.aggregate({
 
 
 
-// UPDATE OPERATORS
+// -------------------------UPDATE OPERATORS-------------------------
 
 
-// .update method is deprecated
+// update method is deprecated so use updateOne and updateMany as much as posible
+// max
 db.table1.update({ "name": "priya" }, { $max: { salary: 50000 } })
 
-// so use this methos
+// set
 db.table1.updateOne({ "name": "priya" }, { $set: { salary: 15000 } })
 
+// min
 db.table1.update({ name: "priya" }, { $min: { salary: 10000 } })
 
+// inc
 db.table1.update({ name: "priya" }, { $inc: { salary: 5000 } })
 
-// this will multiply salary by 2
+// mul : this will multiply salary by 2
 db.table1.update({ name: "priya" }, { $mul: { salary: 2 } })
 
 // rename field
-
+// set column
 db.table1.updateMany({ "middle": { $exists: false } }, { $set: { "middle": "" } }, { upset: true });
-
+// rename column
 db.table1.updateMany({ "middle": "" }, { $rename: { "middle": "Middle_name" } }, { upset: true })
 
 // rename collction
@@ -256,10 +263,15 @@ db.table1.find()
 db.newtable.renameCollection("table1")
 
 // set date
+// currentDate
 db.table1.updateMany({}, { $currentDate: { "Date": true } })
 
+// new Date
+db.students.updateMany({"Date":{$exists: true}},{$set:{"Date":new Date("2024-07-15")}})
 
-// ARRAY OPRATORS
+
+
+// -------------------------ARRAY OPRATORS-------------------------
 
 // create new collection
 
@@ -276,8 +288,7 @@ db.arrayoperator.insertMany([
     }
 ])
 
-// isarray : give value in true and false
-
+// isarray : It will give value in true and false
 db.arrayoperator.aggregate({ $match: { "name": "priyanshi" } },
     { $project: { name: 1, gender: 1, isthisarray: { $isArray: "$name" } } })
 
@@ -290,8 +301,7 @@ db.arrayoperator.aggregate({ $match: { "name": "priyanshi" } },
     })
 
 
-// size : give size of hoiies array 
-
+// size : give size of hobbies array 
 db.arrayoperator.aggregate({ $match: { name: "priyanshi" } },
     {
         $project: { name: 1, gender: 1, sizeofhobby: { $size: "$hobbies" } }
@@ -317,7 +327,6 @@ db.arrayoperator.aggregate({ $match: { name: "priyanshi" } })
 db.arrayoperator.updateOne({ "name": "priyanshi" }, { $set: { "hobbie2": ["chill", "laugh"] } })
 
 // concatArrays
-
 db.arrayoperator.aggregate({ $match: { "name": "priyanshi" } },
     {
         $project: {
@@ -332,10 +341,7 @@ db.arrayoperator.aggregate({ $match: { name: "priyanshi" } },
 
 
 
-
-
-// ARRAY UPDATE OPERATORS
-
+// ------------------------- ARRAY UPDATE OPERATORS -------------------------
 
 db.students.insertMany([
     {
@@ -373,7 +379,8 @@ db.students.insertMany([
 ]);
 
 
-// $pull
+// $pull : remove elements 
+db.students.updateOne({name:"Rohit"},{$pull:{"language":"Uide"}})
 
 db.students.updateOne({ name: "Rohit" },
     { $pull: { "personal.semesterMarks": { $lte: 75 } } }
@@ -386,7 +393,6 @@ db.students.updateMany({},
 db.students.updateMany({}, { $pull: { articles: { language: "C#", tArticles: 100 } } })
 
 db.students.updateMany({}, { $set: { articles: { "language": "C#", "tArticles": 100, } } })
-
 
 db.students.updateMany(
     {},
@@ -417,12 +423,12 @@ db.students.updateMany(
 );
 
 
-// pop : delete last one 
+// pop : This operator is used to remove the first or the last item from the array. -1:mean first element
 
 db.students.update({ name: "Sumit" },
     { $pop: { "personal.semesterMarks": -1 } })
 
-// push method
+// push method : this will add elements in existing array where using set method you can't add in exist array elements 
 
 db.students.update({ name: "Rohit" }, { $push: { language: { $each: ["js", "Uide", "C++"] } } })
 
@@ -437,10 +443,8 @@ db.students.updateOne({ name: "Rohit" }, { $push: { hobbies: { $each: ["writing"
 db.students.updateOne({ name: "Rohit" },
     { $set: { "passion": { 'hardwork': '50%', 'consistency': '40%', 'leadership': '90%' } } })
 
-
 // update data of object
 db.arrayoperator.updateOne({ "name": "Rohit" }, { $set: { "passion.consistency": '60%' } })
-
 
 // Positional Operator
 
@@ -461,7 +465,7 @@ db.students.update({ name: "Rohit" },
 
 // addtoset method
 
-db.contributor.update({ name: "Rohit" }, { $addToSet: { language: "JS++" } })
+db.students.update({ name: "Rohit" }, { $addToSet: { language: "JS++" } })
 
 // slice method
 
@@ -469,8 +473,7 @@ db.students.update({ name: "Rohit" }, { $push: { language: { $each: [], $slice: 
 
 
 
-// STRING EXPRESSION OPERATOR
-
+// ------------------------- STRING EXPRESSION OPERATOR --------------------------
 
 // concat operator
 db.students.aggregate([
