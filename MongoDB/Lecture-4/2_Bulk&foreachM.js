@@ -3,9 +3,7 @@
 // use mongodbmethods;
 // db.createCollection("students");
 
-
 // Bulk method
-
 
 var bulk = db.students.initializeOrderedBulkOp();
 bulk.insert({
@@ -31,12 +29,6 @@ db.students.bulkWrite([
   { insertOne: { document: { first_name: "shubham", last_name: "rabadiya" } } }
 ])
 
-db.students.find({})
-  .projection({})
-  .sort({ _id: -1 })
-  .limit(100)
-  .forEach(printjson)
-
 db.students.updateOne({ "first_name": "shubham" }, { $set: { "first_name": "shubh" } });
 
 // For get the collection name
@@ -46,7 +38,6 @@ db.getCollectionNames()
 var mycursor = db.Mock2.find({id:3}).pretty()
 mycursor.forEach(printjson)
 
-
 // ForEach
 
 db.collec2.find({})
@@ -54,9 +45,6 @@ db.collec2.find({})
   .sort({_id:-1})
   .limit(100)
 .forEach(print)
-
-// Date datatype
-
 
 
 
