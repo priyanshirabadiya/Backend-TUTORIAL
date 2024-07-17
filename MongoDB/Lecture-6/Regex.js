@@ -25,3 +25,8 @@ db.table1.find({"name":/an/}) //answers will be bansi and mansi
 
 
 
+
+
+
+
+
