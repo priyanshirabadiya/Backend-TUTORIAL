@@ -11,9 +11,10 @@
             // mongoimport --db databaseName --collection collectionName --file fileName --JsonArray
 
 
-
 // for importing js file
-
+// step.1 : Download MongoDB Command Line Database Tools Download from Mongodb Tools
+// step.2 : then open bin folder and copy all files 
+//          next open program files - Mongodb - server - bin then patse all files in this bin folder 
 //step 1 : create js file
 //step 2 : open terminal and type mongod //If your server is already open so dont write it again
 //step 3 : open terminal and type mongosh
