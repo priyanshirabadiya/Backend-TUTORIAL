@@ -155,7 +155,7 @@ db.table1.bulkWrite([
 db.table1.findOneAndReplace({ "cid": 2 }, { "name": "jatin", "cid": 17 })
 
 
-// Arithmetic Operator using aggregation
+// -------------------------Arithmetic Operator using aggregation-------------------------
 
 // Addition : +
 
@@ -271,7 +271,7 @@ db.students.updateMany({"Date":{$exists: true}},{$set:{"Date":new Date("2024-07-
 
 
 
-// -------------------------ARRAY OPRATORS-------------------------
+// -------------------------ARRAY EXPRESSION OPRATORS-------------------------
 
 // create new collection
 
