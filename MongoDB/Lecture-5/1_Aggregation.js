@@ -77,7 +77,7 @@ db.Mock2.aggregate([
 
 // limit and skip method
 
-db.Mock2.find({}).limit(5).skip(3)   // give 5 records
+db.Mock2.find({}).limit(5).skip(3)   // give 2 records
 
 db.Mock2.aggregate([{$skip:5},{$limit:15},{$project: {id:1}}])  //give 15 records
 
