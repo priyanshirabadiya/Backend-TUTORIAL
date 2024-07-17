@@ -1,0 +1,6 @@
+{"_id":{"$oid":"6693c370e198e64b552f4e94"},"name":"priya","gender":"Female","cid":{"$numberInt":"1"},"salary":{"$numberInt":"30000"},"Middle_name":"","Date":{"$date":{"$numberLong":"1721063800565"}}}
+{"_id":{"$oid":"6693c370e198e64b552f4e95"},"name":"jatin","cid":{"$numberInt":"17"},"Middle_name":"","Date":{"$date":{"$numberLong":"1721063800565"}}}
+{"_id":{"$oid":"6693c370e198e64b552f4e96"},"name":"shubham","gender":"Male","cid":{"$numberInt":"3"},"salary":{"$numberInt":"5000"},"Middle_name":"","Date":{"$date":{"$numberLong":"1721063800566"}}}
+{"_id":{"$oid":"6693c370e198e64b552f4e97"},"name":"bansi","gender":"Female","cid":{"$numberInt":"4"},"salary":{"$numberInt":"20000"},"Middle_name":"","Date":{"$date":{"$numberLong":"1721063800566"}}}
+{"_id":{"$oid":"6693c370e198e64b552f4e98"},"name":"Depali","Middle_name":"","Date":{"$date":{"$numberLong":"1721063800566"}}}
+{"_id":{"$oid":"6693eaee77c07553ed9dd1a1"},"name":"mansi","gender":"Female","cid":{"$numberInt":"6"},"salary":{"$numberInt":"50000"},"Middle_name":"","Date":{"$date":{"$numberLong":"1721063800566"}}}

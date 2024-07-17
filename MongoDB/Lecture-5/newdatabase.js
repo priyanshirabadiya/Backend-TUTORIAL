@@ -379,5 +379,118 @@ db.students.updateOne({ name: "Rohit" },
     { $pull: { "personal.semesterMarks": { $lte: 75 } } }
 )
 
+db.students.updateMany({},
+    { $pull: { articles: { language: "Java", tArticles: 50 } } },
+    { multi: true })
+
+db.students.updateMany({}, { $pull: { articles: { language: "C#", tArticles: 100 } } })
+
+db.students.updateMany({}, { $set: { articles: { "language": "C#", "tArticles": 100, } } })
+
+
+db.students.updateMany(
+    {},
+    [
+        {
+            $set: {
+                articles: {
+                    $cond: {
+                        if: { $isArray: "$articles" },
+                        then: {
+                            $concatArrays: ["$articles", [
+                                { "language": "C#", "tArticles": 100 },
+                                { "language": "Perl", "tArticles": 200 },
+                                { "language": "Java", "tArticles": 80 }
+                            ]]
+                        },
+                        else: [
+                            "$articles",
+                            { "language": "C#", "tArticles": 100 },
+                            { "language": "Perl", "tArticles": 200 },
+                            { "language": "Java", "tArticles": 80 }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+);
+
+
+// pop : delete last one 
+
+db.students.update({ name: "Sumit" },
+    { $pop: { "personal.semesterMarks": -1 } })
+
+// push method
+
+db.students.update({ name: "Rohit" }, { $push: { language: { $each: ["js", "Uide", "C++"] } } })
+
+// add simple value after creating table
+db.students.updateMany({}, { $set: { "gender": "Male" } })
+db.students.updateMany({}, { $set: { "hobbies": ["cricket", "smile"] } })
+
+// add value in exist array after creating table
+db.students.updateOne({ name: "Rohit" }, { $push: { hobbies: { $each: ["writing", "singing"] } } })
+
+// add new object after creating table
+db.students.updateOne({ name: "Rohit" },
+    { $set: { "passion": { 'hardwork': '50%', 'consistency': '40%', 'leadership': '90%' } } })
+
+
+// update data of object
+db.arrayoperator.updateOne({ "name": "Rohit" }, { $set: { "passion.consistency": '60%' } })
+
+
+// Positional Operator
+
+db.students.updateOne({ name: "Rohit", "articles.language": "C#" },
+    { $set: { "articles.$.tArticles": 150 } })
+
+// position Modifier
+
+db.students.update({ name: "Rohit" },
+    {
+        $push: {
+            language: {
+                $each: ["C#", "Perl"],
+                $position: 0
+            }
+        }
+    })
+
+// addtoset method
+
+db.contributor.update({ name: "Rohit" }, { $addToSet: { language: "JS++" } })
+
+// slice method
+
+db.students.update({ name: "Rohit" }, { $push: { language: { $each: [], $slice: -3 } } })
+
+
+
+// STRING EXPRESSION OPERATOR
+
+
+// concat operator
+db.students.aggregate([
+    { $project: { name: 1, gender: 1, state: { $concat: ["Stat is:", "$personal.state"] } } }
+])
+
+// strcasecmp 
+db.students.aggregate([{$project: {name:1, gender:1 , result:{$strcasecmp: ["$name","Sumit"]}}}])
+
+// touppercase
+db.students.aggregate({$project: {name:1,gender:1,uppercaseofname:{$toUpper: "$name"}}})
+
+// tolowercase
+db.students.aggregate({$project: {name:1,gender:1,lowercaseofname:{$toLower: "$name"}}})
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,1 @@
+{"_id":{"$oid":"6694ac5ee4502bae85f06142"},"name":"Rectangle","mesure":{"height":{"$numberInt":"10"},"width":{"$numberInt":"15"}}}
