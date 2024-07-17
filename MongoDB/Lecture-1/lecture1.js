@@ -9,7 +9,6 @@
 // 1st create collection
 
 db.createCollection("users");
-
 // insert data(single)
 
 db.users.insertOne({

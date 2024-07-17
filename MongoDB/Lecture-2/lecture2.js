@@ -6,7 +6,7 @@
 
 // show collections;
 
-// Find methods
+// Find operations
 
 db.users.find({});
 
@@ -32,7 +32,7 @@ db.users.find({ "gender": "Female" })
 
 
 
-// Update Data
+// Update operations
 // Update one
 db.users.updateOne(
   { 'gender': 'Female' },

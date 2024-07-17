@@ -15,5 +15,3 @@ again in cmd
 5] mongosh
 
 
-
-
