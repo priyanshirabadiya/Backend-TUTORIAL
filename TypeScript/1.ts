@@ -1,5 +1,6 @@
 let a : number = 10;
 console.log(a);
-// tsc first.ts
 
+
+// To run the all files
 // node 1.js
