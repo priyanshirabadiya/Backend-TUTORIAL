@@ -1,3 +1,5 @@
+// About boolean
+
 // function boo(n:number){
 //     return n % 5 == 0
 // }
@@ -11,8 +13,49 @@
 // console.log(divisable(32));
 
 
+// Difference between any and unknown
 
-// let maxNumber = (Number as any).MAX_SAFE_INTEGER;
+// let a :any = "sdfsdf";
+// // a++;
+// console.log(a.toUpperCase());
+
+// let val:unknown = 'ttytu';
+// if(typeof val === 'number') val++;
+// if(typeof val === 'string') val.toUpperCase();
+// console.log(val);
+
+
+
+// let num1:any = 5;
+// num1 = "hello world";
+// num1 = true;
+
+
+// if(typeof num1 === 'number'){
+//     console.log(num1 + 5);
+// }else if(typeof num1 === 'string'){
+//     console.log(num1);
+// }else if(typeof num1 === 'boolean'){
+//     console.log(num1);  
+// }
+
+
+// let num1:unknown = 5;
+// num1 = "hello world";
+// num1 = true;
+
+
+// if(typeof num1 === 'number'){
+//     console.log(num1 + 5);
+// }else if(typeof num1 === 'string'){
+//     console.log(num1);
+// }else if(typeof num1 === 'boolean'){
+//     console.log(num1);  
+// }
+
+
+
+
 
 
 
