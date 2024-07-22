@@ -22,11 +22,17 @@
 // names.push("Dylan"); 
 // names.push("Raha")
 // console.log(names);
+
 // const names: readonly string[] = ["Dylan" , "afsodifio"];
 // console.log(names);
+
 // const numbers = [1, 2, 3]; // inferred to type number[]
 // numbers.push(4);
+
 // console.log(typeof numbers);  //object
+
+
+
 // -------------------------------------------Functions
 // Simple function
 // function add(a:number , b:number){

@@ -47,6 +47,7 @@
 
 // console.log(typeof numbers);  //object
 
+// const num:number[] = [1,5,45,4];
 
 
 // -------------------------------------------Functions
@@ -96,7 +97,7 @@
 // }
 // console.log(bool(true , false));
 
-// Optional Parameters
+// Optional Parameters 👍
 // the `?` operator here marks parameter `c` as optional
 // function addi(a: number, b: number, c?: number) {
 //     return a + b + (c || 0);
@@ -105,7 +106,7 @@
 
 
 
-// Defult parameter / value with parameter 
+// Defult parameter / value with parameter 👍 
 
 // function num(a: number = 5, b: number = 2 ): void {
 //     console.log(a**b);
@@ -113,7 +114,7 @@
 // num(); 
 
 
-// default parameter is only used when we don't value as parameter  
+// default parameter is only used when we don't add any value as parameter  
 // function pow(value: number, exponent: number = 2) {
 //     return value ** exponent;
 // }
@@ -150,6 +151,17 @@
 //     return a + b + c.reduce((g,t) => g + t);
 // }
 // console.log(addition(10,10,10,10,10));
+
+
+// Task
+
+// find palidrome or not
+
+// const ispalidrome = (num:string):boolean => {
+//     let rev = num.split("").reverse().join("")
+//     return rev === num;
+// }
+// console.log(ispalidrome("1321"));
 
 
 // -----------------------------NO IDEA-----------------------------------
