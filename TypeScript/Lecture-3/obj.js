@@ -8,8 +8,10 @@ var person = {
         country: 'India'
     }
 };
+
 console.log(typeof person.address.country);
 console.log(person.address.country);
+
 var person2 = {
     name: "Lk",
     age: 15,
@@ -37,3 +39,15 @@ var calculateTotal = function (person1) {
     return " Total is ".concat(price * qty);
 };
 console.log(calculateTotal(person1));
+
+
+
+
+
+
+
+
+
+
+
+

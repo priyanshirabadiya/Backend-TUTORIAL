@@ -23,7 +23,6 @@ console.log(person.address.country);
 
 // This is not possible when you add same multiple data at that time you can use this 
 
-
 type Person = {
     name : string;
     age : number;
@@ -70,4 +69,7 @@ const calculateTotal = (person1 : Person) => {
 }
 
 console.log(calculateTotal(person1));
+
+
+
 
