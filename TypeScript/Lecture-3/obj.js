@@ -49,5 +49,3 @@ console.log(calculateTotal(person1));
 
 
 
-
-
