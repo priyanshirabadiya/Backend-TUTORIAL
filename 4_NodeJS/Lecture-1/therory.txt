@@ -1,0 +1,35 @@
+difference between console and console.log
+
+1.console
+
+=> The console is a global object provided by Node.js that offers various methods for interacting 
+with the standard input/output (stdin/stdout) streams.
+
+=> It provides functions for logging information, warnings, errors, and more to the console.
+Some commonly used methods include:
+console.log(): Prints output to the console.
+console.error(): Prints error messages to the console.
+console.warn(): Prints warning messages to the console.
+console.info(): Prints informational messages to the console.
+console.time(): Starts a timer.
+console.timeEnd(): Ends a timer and prints the elapsed time.
+
+
+2. console.log()
+
+console.log() is a specific method of the console object.
+It is used to print output to the console, typically for debugging or displaying information during development.
+It accepts one or more arguments and displays them in a readable format.
+
+
+In summury
+
+console is the object that provides various methods for interacting with the console.
+console.log() is one of those methods, specifically used for printing output.
+Think of it like this: console is a toolbox, and console.log() is one of the tools inside that box.
+
+
+
+convert messages in cifer text after then it will be receive by reciver it can only manupulate by receiver  
+https encrypts data using ssl(secure sockets layer) or tsl (transport Layer security) 
+
