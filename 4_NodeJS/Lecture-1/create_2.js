@@ -2,9 +2,9 @@
 
 
 // const server = http.createServer((req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write("<h1>Hello welcome</h1>")
-//     res.end();
+    //     res.setHeader("Content-type" , 'text/html');
+    //     res.write("<h1>Hello welcome</h1>")
+    //     res.end();
 // })
 
 
