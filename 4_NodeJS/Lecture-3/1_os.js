@@ -20,17 +20,18 @@
 // console.log(os.cpus());  // Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz
 
 
-// const hello = require('./odd');
-// const {mul , add} = require('./odd')
+// const hello = require('./2_add');
+// const {mul , add} = require('./2_add')
 // console.log(hello.mul(11,5));
 // console.log(add(11,5));
 
 
-const hello = require('./odd');
-// const {mul , add} = require('./odd')
-console.log(hello.mul(10,5));
-console.log(hello.add(22,1));
+// const hello = require('./2_add');
+// console.log(hello.mul(10,5));
+// console.log(hello.add(22,1));
 
+// By destrucring of object
+// const {mul , add} = require('./2_add')
 
 
 

@@ -1,0 +1,87 @@
+1.what is SQL?
+
+=> SQL stands for structured query languaue.
+=> SQL lets you access and manipulate database.
+=> SQL became a standard of American National standards institute(ANSI) in 1986 , and of the International Organization for Standardization (ISO) in 1987.
+
+
+2.What can SQL do?
+
+=> SQL can execute queries against a database.
+=> SQL can retrieve data from a database.
+=> SQL can insert records in a database.
+=> SQL can update records in a database.
+=> SQL can delete records in a database.
+=> SQL can create new databases.
+=> SQL can create new tables in a database.
+=> SQL can create stored procedures in a database.
+=> SQL can create views in a database.
+=> SQL can set permissions on tables , proceduers , and views.
+
+
+RDBMS
+
+=> RDBMS stands for relational database management system.
+=> RDBMS is the basis for SQL and all modern database systems such as MS SQL Server , IBM DB2 , Oracle , MySQL , and Microsoft Access.
+=> The data is RDBMS is stored in database objects called tables. A table is collection of related data entries and it consists of columns and rows.
+
+INRODUCTION OF MYSQL:
+
+=> MySQL is an open-source relational database management system (RDBMS) widely used for storing and retrieving data. It provides a powerful and flexible database management plateform and is supported on various operating systems.
+
+ADVANTAGES OF MYSQL:
+
+=> Fast and High-Performance database.
+=> Easy to use , maintain , and administer.
+=> Easily available and maintains the integrity of the database.
+=> Provides scalability , usability , and reliability.
+=> Low-cost hardware. //
+=> MySQL can read simple and complex queries and write operations.
+=> InnoDB is a default and widely used sterage engine.
+	=> Provides SSL support for secured connections. //
+=> Provides powerful data encryption and accuracy.
+=> Provides Cross-platefrom compatibility.
+=> Provides minimized code repetition.
+
+DATABASE:
+
+=>A database is collection of organized data stored in MYSQL. It serves as a container for tables , views , procedures , and other database onjects. MySQL allows you to create multiple databases within a single MySQL server instance.
+
+1)TABLES:
+  
+=> Tables are fundamental structure for storing data in MySQL. They consist of rows and columns , forming a grid-like structure. Each table represents a specific entity or concept and hols data.
+
+ 1.COLUMNS:
+   => Columns , also known as fields , represent the individual data elements within a table. They define the type of data stored in particular field , such as integers , strings , dates , ets.
+
+2.ROWS:
+
+=> Rows , also called records , contain the actual data within a table . Each row represents a single entry ot intancs of the data entity defined by the table . Each column is n row corresponse to a specific field.  
+   	
+
+
+
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Please provide the password for 'root@localhost:3306': *********
+Save password for 'root@localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 12
+Server version: 8.0.37 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL >
+
+
+
+  touch-action: manipulation;
+
+
+
+
+
+
+
