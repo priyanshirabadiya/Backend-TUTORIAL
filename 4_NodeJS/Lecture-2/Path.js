@@ -1,17 +1,18 @@
 // // Path Module
 
 // const path = require('path')
-// // const base = path.basename('C:\\temp\\myfile.html');
-// // const base = path.basename('D:\\Backend-tutorial\\4_NodeJS\\Lecture-2\\Path.js');
-// // const base = path.basename('D:/Backend-tutorial/4_NodeJS/Lecture-2/Path.js');
+// const base = path.basename('C:\\temp\\myfile.html');
+// const base = path.basename('D:\\Backend-tutorial\\4_NodeJS\\Lecture-2\\Path.js');
+// const base = path.basename('D:/Backend-tutorial/4_NodeJS/Lecture-2/Path.js');
 
 // const base = path.basename(path.join('D:', 'Backend-tutorial', '4_NodeJS', 'Lecture-2'));
+// console.log(path.join('D:', 'Backend-tutorial', '4_NodeJS', 'Lecture-2'));
 
-// // const dir = path.dirname('/foo/bar/baz/asdf/quux');
-// // const ext = path.extname('index.html');
+// const dir = path.dirname('/foo/bar/baz/asdf/jhiku/quux');
+// const ext = path.extname('index.html');
 // console.log(base);
-// // console.log(dir);
-// // console.log(ext);
+// console.log(dir);
+// console.log(ext);
 
 
 
@@ -40,13 +41,15 @@ const path = require('path');
 
 
 // const mypath = path.parse('D:/Backend-tutorial/4_NodeJS/Lecture-2/Path.js');
+// const mypath = path.parse(__dirname);
 // console.log(mypath.root)
 // console.log(mypath.name)
+// console.log(mypath);
 
 
 // console.log(__filename);
 // console.log(__filename,'.js');
-// ans: D:\Backend-tutorial\4_NodeJS\Lecture-2\Path.js
+// // ans: D:\Backend-tutorial\4_NodeJS\Lecture-2\Path.js
 
 
 // It give path by creating 

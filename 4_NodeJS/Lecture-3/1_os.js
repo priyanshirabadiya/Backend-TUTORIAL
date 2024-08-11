@@ -1,4 +1,4 @@
-// const os = require('os');
+const os = require('os');
 
 // console.log(os.arch()); // x64 
 // console.log(os.hostname());  // Priyanshi
@@ -18,7 +18,7 @@
 // console.log(os.freemem());  // 8796459008
 // console.log(os.totalmem()); // 17015463936
 // console.log(os.cpus());  // Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz
-
+// console.log(os.cpus().length); // 8 our pc have 8 thread 
 
 // const hello = require('./2_add');
 // const {mul , add} = require('./2_add')
