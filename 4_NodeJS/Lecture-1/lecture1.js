@@ -3,8 +3,6 @@
 const fs = require('fs'); // comman JS
 // import * as fs from "fs";
 
-
-
 // file open, close, write, read, append, update, rename, delete
 
 // ---------------------------------------------- OPEN FILE METHOD-----------------------------------------------
