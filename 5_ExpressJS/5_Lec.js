@@ -12,13 +12,13 @@ app.use(express.urlencoded({extended:false}))
 // CRUD operation
 // create user
 
-// app.get("/", (req,res)=> {
-//     // res.send("Welcome to express");
-//     // res.send(users);
-//     users.push(req.body);
-//     // res.json({message:"Successfully added..."});
-//     res.send(users);
-// })
+app.get("/", (req,res)=> {
+    // res.send("Welcome to express");
+    // res.send(users);
+    users.push(req.body);
+    // res.json({message:"Successfully added..."});
+    res.send(users);
+})
 
 // READ - get all users
 
