@@ -1,69 +1,3 @@
-// // Simple create server
-// const express = require("express");
-// const app = express();
-
-// app.get("/" , (req,res) => {
-//     res.send("<h1>Hello welcome to server.</h1>");
-// })
-
-// app.listen(4444,()=>{
-//     // console.log('Server at http://localhost:4444');
-//     console.log('Server at http://127.0.0.1:4444');
-// })
-
-// --------------------------------------------- L-2 ---------------------------------------------
-
-// const express = require('express');
-// const app = express();
-// const fs = require('fs');
-// const data = fs.readFileSync('./users.json' , 'utf-8');
-
-// app.get("/" , (req,res) => {
-//     res.setHeader("Content-type" , "text/html" );
-//     res.write("<h1>Hello this GET Method is called.</h1>");
-//     res.end();
-// })
-
-// app.post("/" , (req,res)=>{
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is POST method is called.</h1>');
-//     res.end();
-// })
-
-// app.put("/" , (req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is PUT method is called.</h1>');
-//     res.end();
-// })
-
-// app.patch("/" , (req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is PATCH method is called.</h1>');
-//     res.end();
-// })
-
-// app.delete("/" , (req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is DELETE method is called.</h1>');
-//     res.end();
-// })
-
-// app.head("/" , (req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is HEAD method is called.</h1>');
-//     res.end();
-// })
-
-// app.options("/" , (req,res) => {
-//     res.setHeader("Content-type" , 'text/html');
-//     res.write('<h1>Hello this is OPTION method is called.</h1>');
-//     res.end();
-// })
-
-// app.listen(1122,()=>{
-//     console.log('Server http://localhost:1122');
-// })
-
 // --------------------------------------------- L-3 middleware ---------------------------------------------
 
 // const express = require('express');
@@ -121,10 +55,8 @@
 //     res.send("your First router.")
 // })
 
-
-
 // ---------------------------------- Built-in middleware ----------------------------------
-
+// ----------------------------------- 1. express.json() -----------------------------------
 // app.use(express.json());
 
 // const myFun = (req,res,next) => {
@@ -140,7 +72,8 @@
 //     res.end();
 // })
 
-// urlencoded
+// ----------------------------------- 1.urlencoded -----------------------------------
+
 
 // app.use(express.urlencoded({ extended: false }));
 
@@ -154,78 +87,60 @@
 //     res.end();
 // })
 
-// --------------------------------------------- static 
+// ----------------------------------- static middleware -----------------------------------
 
 // app.use('/hello', express.static('public'));
-
-// const myFun = (req,res,next) => {
-//     console.log(req.body);              
-//     next();
-// }
 
 // app.get("/" ,(req,res) =>{
 //     res.write("Welcome to expressJS")
 //     res.end();
 // })
-// app.get("/login",myFun ,(req,res) =>{
-//     res.write("Welcome to loginPAGE.")
-//     res.end();
-// })
-
-
-
-// // app.get("/hello", (req, res) => {
-// //     res.write("Welcome to expressJS")
-// //     res.end();
-// // })
 
 // app.listen(4545, () => {
 //     console.log('S http://localhost:4545');
 // })
 
 // ---------------------------------------------------------------------------------------------------------
-
-
-
+// ----------------------------------- res.sendFile properti -----------------------------------
 
 // const express = require("express");
-// const server = express();
+// const app = express();
 // const path = require('path')
 
-// server.use(morgan('combined'));
-// server.use(express.json());
-// server.use(express.urlencoded({extended:false}));
+// app.use(morgan('combined'));
+// app.use(express.json());
+// app.use(express.urlencoded({extended:false}));
 
-// server.get("/" , (req,res) => {
-//     res.send("<h1>Welcome to server.</h1>");
+// app.get("/" , (req,res) => {
+//     res.send("<h1>Welcome to app.</h1>");
 // })
 
-// server.get('/file', (req, res)=>{
+// app.get('/file', (req, res)=>{
 //     res.sendFile(path.join(__dirname,'./ggodwebp.webp'));
 //     // res.sendFile(path.join(__dirname,'./public/index.html'));
 
 // });
 
-// server.listen(1111,() => {
+// app.listen(1111,() => {
 //     console.log('Start at  http://localhost:1111 ');
 // })
 
 
-// server.get('/', (req, res) => {
+// app.get('/', (req, res) => {
 //     throw new Error('Something went wrong!');
 // });
 
-// // Centralized error handling middleware
+// ----------------------------------- Centralized error handling middleware -----------------------------------
 // function errorHandler(err, req, res, next) {
 //     console.error(err.message);
 //     // console.error(err);
 //     res.status(500).json({ error: err.message });
 // }
 
-// server.use(errorHandler);
+// app.use(errorHandler);
 
-// server.listen(3000, () => {
-//     console.log('Server is running on port http://localhost:3000');
+// app.listen(3000, () => {
+//     console.log('app is running on port http://localhost:3000');
 // });
 
 // const express = require('express');
@@ -245,7 +160,7 @@
 // });
 
 // app.listen(PORT, () => {
-// 	console.log(`Server Established at PORT-http://localhost:3000`);
+// 	console.log(`app Established at PORT-http://localhost:3000`);
 // });
 
 // process.env.DEBUG = 'express:*';
@@ -262,29 +177,14 @@
 // // });
 
 // app.listen(PORT, () => {
-// 	console.log(`Server Established at http://localhost:3000`);
+// 	console.log(`app Established at http://localhost:3000`);
 // });
-
-
 
 // const express = require('express');
 // const app = express();
 // const PORT = 3000;
 
-// app.get('/', function (req, res) {
-//     console.log(req.app);
-//     res.send();
-// });
-
-// app.listen(PORT, function (err) {
-//     if (err) console.log(err);
-//     console.log("Server listening on http://localhost:3000", PORT);
-// });
-
-
-// const express = require('express');
-// const app = express();
-// const PORT = 3000;
+// -----------------------------------
 
 // // Adding some custom events
 // app.on('userLoggedIn', () => {
@@ -303,7 +203,7 @@
 
 // app.listen(PORT, function (err) {
 //     if (err) console.log(err);
-//     console.log(`Server listening on http://localhost:${PORT}`);
+//     console.log(`app listening on http://localhost:${PORT}`);
 // });
 
 // const express = require('express');
@@ -311,7 +211,7 @@
 // const PORT = 3008;
 
 // // Create a routerr instance
-// const userRouterr = express.Routerr();
+// const userRouterr = express.Router();
 
 // // Define a router within the routerr
 // userRouterr.get('/login', function (req, res) {
@@ -324,7 +224,7 @@
 
 // app.listen(PORT, function (err) {
 //     if (err) console.log(err);
-//     console.log("Server listening on PORT http://localhost:3008", PORT);
+//     console.log("app listening on PORT http://localhost:3008", PORT);
 // });
 
 
@@ -343,7 +243,7 @@
 
 // app.listen(PORT, function (err) {
 // 	if (err) console.log(err);
-// 	console.log("Server listening on http://localhost:3008", PORT);
+// 	console.log("app listening on http://localhost:3008", PORT);
 // });
 
 
@@ -392,7 +292,7 @@
 // })
 
 // app.get('/user/:id', (req, res, next) => {
-//     res.send("Hello server");
+//     res.send("Hello app");
 // })
 
 
@@ -401,7 +301,7 @@
 // })
 
 
-// Routerr level middleware
+// Router level middleware
 
 // const express = require('express');
 // const app = express();
@@ -457,6 +357,99 @@
 // app.listen(3000, () => {
 //     console.log("http://localhost:3000");
 // })
+
+// ---------------------------------------------built-in middleware---------------------------------------------
+
+// const express = require('express')
+// const app = express();
+
+// app.use(express.json());
+
+// const getdatafromClient = (req, res, next) => {
+//     console.log(req.body);
+//     console.log(req.Headers);
+//     next();
+// }
+
+// app.post("/", getdatafromClient, (req, res) => {
+//     res.send("hello user");
+//     res.end();
+// })
+
+// ------------- url encoded
+
+// app.use(express.urlencoded({ extended: false }));
+
+// const myFun = (req, res, next) => {
+//     console.log(req.body);
+//     next();
+// }
+
+// app.get("/",myFun, (req, res) => {
+//     res.write("Welcome to expressJS")
+//     res.end();
+// })
+
+// app.post("/",myFun, (req, res) => {
+//     res.setHeader('Content-type', "application/json")
+//     res.write("Welcome to expressJS post ")
+//     res.end();
+// })
+
+// app.listen(1122, () => {
+//     console.log('app running at http://localhost:1122');
+// });
+
+// -------------------------------------------- static inbuilt middleware
+// const express = require('express');
+// const server = express();
+
+// server.get("/", (req,res) =>{
+//     console.log(req.ip);              
+//     console.log(req.params);  
+//     console.log(req.url);
+//     console.log(req.originalUrl);
+//     console.log(req.route);
+//     res.write("Welcome to static post ")
+//     res.end();
+// })
+
+// server.listen(1122, () => {
+//     console.log('Server running at http://localhost:1122');
+// });
+
+// -------------------------------------------- Main new crud operation  -----------------------------------
+
+// Connecting with database 
+
+
+const express = require('express');
+const app = express();
+const userRoutes = require('./routes/user.routes');
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb://127.0.0.1:27017/nodepracticeSet")
+        .then(() => console.log("Database connection extablished success..."))
+        .catch((err) => console.log(err));
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+app.get("/" , (r,s)=>{
+    s.send("Welcome to server.");
+});
+
+app.use("/user" , userRoutes)
+
+app.listen(1155,()=>{
+    console.log('server http://localhost:1155');
+})
+
+
+
+
+
 
 
 
