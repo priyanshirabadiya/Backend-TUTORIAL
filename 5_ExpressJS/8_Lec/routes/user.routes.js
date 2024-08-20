@@ -1,19 +1,36 @@
 
-const express = require('express');
-const userRoutes = express.Router();
+// const express = require('express');
+// const userRoutes = express.Router();
+
+// const {
+//     addNewuser,
+//     getAllusers,
+//     getSingleuser
+// } = require('../controller/user.controller')
+
+// userRoutes.get("/add", addNewuser);
+
+// userRoutes.get('/all',getAllusers);
+
+// userRoutes.get('/single',getSingleuser);
+
+// module.exports = userRoutes;
+
+// ----------------------------------------- new pratice --------------------------------
+
+
+const express = require("express");
+const routes = express.Router();
 
 const {
-    addNewuser,
-    getAllusers,
-    getSingleuser
-} = require('../controller/user.controller')
+    addnewUser,
+    getallUsers
+} = require("../controller/user.controller")
 
-userRoutes.get("/add", addNewuser);
+routes.get("/add",addnewUser);
 
-userRoutes.get('/all',getAllusers);
+routes.post("/all" , getallUsers);
 
-userRoutes.get('/single',getSingleuser);
-
-module.exports = userRoutes;
+module.exports = routes;
 
 
