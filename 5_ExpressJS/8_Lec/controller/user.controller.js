@@ -43,26 +43,4 @@
 // }
 
 
-// ------------------------------ new practice ------------------------------
-
-const User = require('../model/user.model');
-
-exports.addnewUser = async (req, res) => {
-
-    const user = await User.findOne({ id: req.body.id })
-    if (user) {
-        res.send("Is is already exist...");
-    }
-    const addUser = await User.create(req.body);
-    res.status(200).json({ addUser, message: "User added success..:" });
-}
-
-exports.getallUsers = async (req, res) => {
-    const allUr = await User.find();
-    res.send(allUr);
-    res.status(200).json({ addUser, message: "Get all the users...:" });
-}
-                    
-
-
 
