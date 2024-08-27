@@ -2,22 +2,22 @@ const express = require('express');
 const userRoutes = express.Router();
 const {
     registerUser,
-    getAllUser,
-    loginUser,
-    updateUser,
-    getuserProfile,
+    loginUser
 } = require('../controller/user.controller');
-const { verifyToken } = require('../helpers/verifyToken');
 
-userRoutes.post('/register', registerUser)
+userRoutes.get('/register', (req, res) => {
+    res.render('user', { user: {} }); // Pass an empty user object for rendering
+});
 
-userRoutes.get('/all', getAllUser)
+userRoutes.get('/login', (req, res) => {
+    res.render('login', { user: {} }); // Pass an empty user object for rendering
+});
 
-userRoutes.get('/login', loginUser)
 
-userRoutes.get('/me', verifyToken, getuserProfile )
+userRoutes.post('/login', loginUser);
 
-userRoutes.put('/update', verifyToken , updateUser )
+userRoutes.post('/register', registerUser);
+
 
 
 

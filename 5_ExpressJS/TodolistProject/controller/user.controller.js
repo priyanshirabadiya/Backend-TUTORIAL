@@ -1,49 +1,44 @@
 const User = require('../model/user.model')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
+
 
 exports.registerUser = async (req, res) => {
     try {
-        let user = await User.findOne({ email: req.body.email, isDelete: false })
+        let user = await User.findOne({ email: req.body.email, isDelete: false });
         if (user) {
-            return res.json({ message: "User already exist..." });
+            return res.json({ message: "User already exists..." });
         }
-        let hashpassword = await bcrypt.hash(req.body.password, 10);
-        console.log(hashpassword);
+        let hashpassword = await bcrypt.hash(req.body.password, 10); // Ensure this is correct
         user = await User.create({ ...req.body, password: hashpassword });
-        return res.send({ user, message: "User added successfully..." })
+        return res.render('sucess', { user });
     } catch (error) {
         console.log(error);
         res.json({ message: "Internal server error..." });
     }
-}
+};
 
-exports.getAllUser = async (req, res) => {
-    try {
-        let users = await User.find({ isDelete: false });
-        if (!users) {
-            res.send("Users can't find...");
-        }
-        res.send(users);
-    } catch (error) {
-        console.log(error);
-        res.json({ message: "Internal server error..." });
-    }
-}
+
 
 exports.loginUser = async (req, res) => {
     try {
-        let user = await User.findOne({ email: req.body.email, isDelete: false })
+        console.log("Login attempt with email:", req.body.email);
+
+        let user = await User.findOne({ email: req.body.email, isDelete: false });
         if (!user) {
-            res.send("Users can't find...");
+            console.log("User not found");
+            return res.send("User does not exist...");
         }
+
         let comparepassword = await bcrypt.compare(req.body.password, user.password);
         if (!comparepassword) {
-            res.send("Email or password does not match");
+            console.log("Password mismatch");
+            return res.send("Email or password is incorrect...");
         }
-        let token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRETE)
-        res.status(200).send({ user, message: "User login success...", token });
+
+        let token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRETE);
+        console.log("Generated token:", token);
+        return res.render('sucess', { user });
 
     } catch (error) {
         console.log(error);
@@ -52,32 +47,3 @@ exports.loginUser = async (req, res) => {
 }
 
 
-exports.updateUser = async (req, res) => {
-    try {
-        let user = req.user;
-        if (req.body.password) {
-            const hashedpassword = await bcrypt.hash(req.body.password, 10);
-            req.body.password = hashedpassword;
-        }
-        user = await User.findByIdAndUpdate(
-            user._id,
-            { $set: req.body },
-            { new: true }
-        )
-
-        res.send("User update successfully...");
-    } catch (error) {
-        console.log(error);
-        res.json({ message: "Internal server error..." });
-    }
-}
-
-
-exports.getuserProfile = async (req, res) => {
-    try {
-        res.send("<h1>Welcom to my profile.</h1>");
-    } catch (error) {
-        console.log(error);
-        res.json({ message: "Internal server error..." });
-    }
-}
