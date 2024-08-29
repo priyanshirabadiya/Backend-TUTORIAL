@@ -2,7 +2,6 @@ const User = require('../model/user.model')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 exports.registerUser = async (req, res) => {
     try {
         let user = await User.findOne({ email: req.body.email, isDelete: false });
@@ -11,14 +10,12 @@ exports.registerUser = async (req, res) => {
         }
         let hashpassword = await bcrypt.hash(req.body.password, 10); // Ensure this is correct
         user = await User.create({ ...req.body, password: hashpassword });
-        return res.render('sucess', { user });
+        return res.render('success', { user });
     } catch (error) {
         console.log(error);
         res.json({ message: "Internal server error..." });
     }
 };
-
-
 
 exports.loginUser = async (req, res) => {
     try {
@@ -38,7 +35,7 @@ exports.loginUser = async (req, res) => {
 
         let token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRETE);
         console.log("Generated token:", token);
-        return res.render('sucess', { user });
+        return res.render('success', { user });
 
     } catch (error) {
         console.log(error);
@@ -46,4 +43,18 @@ exports.loginUser = async (req, res) => {
     }
 }
 
+
+// --------------------- todo list 
+
+// exports.todolist = async (req, res) => {
+//     try {
+//         let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+//         let today = new Date();
+//         let day = today.toLocaleDateString("en-US", options);
+//         res.render('success', { kindOfday: day });
+//     } catch (error) {
+//         console.log(error);
+//         res.json({ message: "Internal server error..." });
+//     }
+// }
 

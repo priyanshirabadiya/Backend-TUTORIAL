@@ -25,5 +25,4 @@ userRoutes.post('/forgot' , forgotpassword )
 
 userRoutes.post('/reset:token' , resetPassword )
 
-
 module.exports = userRoutes;

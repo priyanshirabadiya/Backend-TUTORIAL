@@ -10,7 +10,6 @@ const userRoutes = require('./routes/user.routes')
 app.use(express.json());
 app.use(express.urlencoded());
 
-
 mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('Database connection established success...'))
     .catch((err) => console.log(err))
@@ -21,7 +20,8 @@ app.get("/", (req, res) => {
 
 app.use('/user', userRoutes)
 
-
 app.listen(port, () => {
     console.log(`Server at http://localhost:${port}`);
 })
+
+
