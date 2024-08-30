@@ -1,3 +1,5 @@
+// how to reset password
+
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
