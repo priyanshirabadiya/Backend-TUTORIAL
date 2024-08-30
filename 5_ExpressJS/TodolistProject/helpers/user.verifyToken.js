@@ -4,13 +4,12 @@ const User = require('../model/user.model');
 exports.verifyToken = async (req, res , next ) => {
     try {
         let authentication = req.headers['authorization'];
-        console.log(authentication);
+        // console.log(authentication);
 
         if (!authentication) {
             return res.send("Not authentication");
         }
         let token = authentication.split(" ")[1];
-        console.log(token);
         let { userId } = await jwt.verify(token, process.env.JWT_SECRETE);
         let user = await User.findOne({ _id: userId, isDelete: false });
         if (!user) {
