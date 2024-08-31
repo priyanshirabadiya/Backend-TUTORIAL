@@ -12,7 +12,15 @@ const userSchema = mongoose.Schema({
     hobbies : [{type : String}],
     age : {
         type : String
+    },
+    isDelete : {
+        type : Boolean,
+        default : false
     }
+},
+{
+    versionKey : false,
+    timestamps : true
 })
 
 module.exports = mongoose.model('user' , userSchema);

@@ -1,30 +1,20 @@
 const express = require('express');
-const route = express.Router();
-const users = require('../dummy.json');
+const routes = express.Router();
+const { verifyToken } = require('../helpers/verifyToken')
 const {
     addnewUser,
     findAll,
-    findUser,
-    replaceUser,
-    updateUser,
-    deleteUser
-} = require('../controller/user.controller')
+} = require('../controller/user.controller');
+const { addtoCart, getAllCarts } = require('../controller/carts.controller');
 
-route.post("/add-new", addnewUser)
+routes.post("/add", addnewUser)
 
-// route.get("/add", (req, res) => {
-//     users.push(req.body);
-//     res.send(users);
-// })
+routes.get("/all", findAll);
 
-route.post("/", findAll);
+routes.get("/all", findAll);
 
-// route.post("/", findUser)
+routes.post("/addcart", verifyToken, addtoCart);
 
-// route.put("/:id", replaceUser)
+routes.post("/allcarts", verifyToken, getAllCarts);
 
-route.put("/", updateUser);
-
-route.delete("/", deleteUser)
-
-module.exports = route;
+module.exports = routes;
