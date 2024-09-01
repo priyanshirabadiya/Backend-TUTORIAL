@@ -1,6 +1,6 @@
 const Cart = require('../model/cart.model');
 
-exports.addtoCart = async (req, res) => {
+exports.addToCart = async (req, res) => {
     try {
         let cart = await Cart.findOne({
             user: req.user._id,
@@ -8,24 +8,26 @@ exports.addtoCart = async (req, res) => {
             isDelete: false
         })
         if (cart) {
-            return res.json({ message: "Item is already in cart..." });
+            res.send({ message: "Item is already in cart..." });
         }
         cart = await Cart.create({
             user: req.user._id,
             ...req.body
-        })
-        res.status(201).json({ message: "Cart added", cart });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Internal server error..." });
+        });
+        res.status(201).json({ message: "Item is added to cart...", cart })
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Internal Server error...");
     }
 }
 
 exports.getAllCarts = async (req, res) => {
     try {
-        let carts = await Cart.find({ user: req.user._id, isDelete: false });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "Internal server error..." });
+        let carts = await Cart.find({ user: req.user._id, isDelete: false })
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Internal Server error...");
     }
 }
+
+

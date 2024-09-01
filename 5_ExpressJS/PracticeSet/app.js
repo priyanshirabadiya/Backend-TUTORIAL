@@ -1,33 +1,25 @@
-const express = require('express');
-const app = express();
-const userRoutes = require('./routes/user.routes');
-const mongoose = require('mongoose');
+let express = require('express');
+let app = express();
 require('dotenv').config();
+const mongoose = require('mongoose');
+const UserRouter = require('./routes/user.routes');
 
 mongoose.connect(process.env.MONGO_URL)
-        .then(() => console.log("Database connection extablished success..."))
-        .catch((err) => console.log(err));
-
+    .then(() => console.log("database connection established...."))
+    .catch((err) => console.log(err))
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/" , (r,s)=>{
-    s.send("Welcome to server.");
-});
 
-app.use("/user" , userRoutes);
-
-app.listen(1155,()=>{
-    console.log('server http://localhost:1155');
+app.get("/", (req, res) => {
+    res.send("<h1>Welcome to server.</h1>");
 })
 
+app.use("/user" , UserRouter );
 
-
-
-
-
-
-
+app.listen(1133, () => {
+    console.log('Server start at http://localhost:1133');
+})
 
 

@@ -1,26 +1,37 @@
+// senario for cart model 
+
+// user 
+// product
+// quentity
+// price 
+
 const mongoose = require('mongoose');
 
 const cartSchema = mongoose.Schema({
-    user :{
-        type : mongoose.Schema.Types.ObjectId,
-        ref:'users'
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
     },
-    productId : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'products'
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'products'
     },
-    quantity : {
-        type : Number ,
-        default : 1
+    quentity: {
+        type: Number
     },
-    isDelete : {
-        type : Boolean,
-        default : false
+    isDelete: {
+        type: Boolean,
+        default: false
     }
 },
-{
-    versionKey : false,
-    timestamps : true
-})
+    {
+        versionKey: false,
+        timestamps: true
+    })
 
-module.exports = mongoose.model('carts' , cartSchema);
+
+module.exports = mongoose.model('carts', cartSchema);
+
+
+
+

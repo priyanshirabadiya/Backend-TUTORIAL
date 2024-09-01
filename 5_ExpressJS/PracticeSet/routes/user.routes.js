@@ -1,20 +1,47 @@
 const express = require('express');
 const routes = express.Router();
-const { verifyToken } = require('../helpers/verifyToken')
+
+const { verifyToken } = require('../helpers/verifyToken');
 const {
-    addnewUser,
-    findAll,
-} = require('../controller/user.controller');
-const { addtoCart, getAllCarts } = require('../controller/carts.controller');
+    addUser,
+    getallUsers,
+    updateUser,
+    registerUser,
+    loginUser,
+} = require('../controller/user.controller')
 
-routes.post("/add", addnewUser)
+const {
+    addProduct,
+    getAllproducts
+} = require('../controller/product.controller');
 
-routes.get("/all", findAll);
 
-routes.get("/all", findAll);
+const {
+    addToCart,
+    getAllCarts
+} = require('../controller/carts.controller')
 
-routes.post("/addcart", verifyToken, addtoCart);
 
-routes.post("/allcarts", verifyToken, getAllCarts);
+// routes.post("/add", addUser);
+
+routes.get('/all', getallUsers);
+
+routes.put('/update', verifyToken, updateUser);
+
+routes.post('/register', registerUser)
+
+routes.get('/login', loginUser)
+
+routes.post('/addproduct', addProduct)
+
+routes.get('/allproduct', getAllproducts)
+
+// -------------------- cart ------------------
+
+routes.post('/addcart', verifyToken, addToCart);
+
+routes.get('/allcart', verifyToken, getAllCarts);
+
 
 module.exports = routes;
+
