@@ -54,7 +54,6 @@ exports.loginUser = async (req, res) => {
         }
         // Creating token for reach home page.
         let token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRETE);
-
         res.json({ message: "User login success...", token });
     } catch (error) {
         console.log(error);
