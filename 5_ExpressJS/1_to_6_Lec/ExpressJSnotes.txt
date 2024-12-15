@@ -1,0 +1,31 @@
+------------------------- Lecture-1 ------------------------- 
+
+npm init
+
+npm i
+
+npm i express
+
+create server
+
+npm i -D nodemon
+
+----- other dependencies
+
+npm i mongoose
+
+npm i morgan
+
+
+
+
+what is router ?
+=> In express js router is mini application that provide us routing functionality.
+=> Routing refers to how an application’s endpoints (URIs) respond to client requests. 
+=> Router allows us to break down your application into smaller and manageable chunks.
+=> It can be reused across different parts of your application.
+
+morgan => it is used for console.log http requests
+
+
+

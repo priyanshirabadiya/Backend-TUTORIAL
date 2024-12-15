@@ -1,0 +1,159 @@
+create table salesman(sid , name , city , commission);
+
+insert into salesman values(5001,'mohan patel','anand',0.15),
+(5002,'nail shah','surat',0.13),(5005,'preet vyas','ahmedabad',0.11),(5006,'jeevan mehta','navsari',0.14),(5003,'paul adam','nadiad',0.12),(5007,'ramesh patel','surat',0.13);
+
+
+create table order1(oid,pur_amt,ord_date,sid references salesman(sid));
+
+insert into order1 values(1,12000,'2020-12-05',5001),(2,42000,'2020-12-20',5002),(3,2000,'2021-02-02',5005),(4,14000,'2021-03-23',5005),(5,23000,'2021-04-15',5003),(6,33000,'2021-05-20',5001),(7,32000,'2021-06-22',5003),(8,23500,'2021-07-01',5003),(9,43000,'2021-07-05',5001);
+
+
+create table customer(cid primary key,cust_name,grade,sid references salesman(sid));
+
+insert into customer values('c1','mohit patel',100,5001),('c2','geeta vyas',200,5003),('c3','jaya patil',100,5005),('c4','vishal gohel',300,5005),('c5','kartik goyenka',200,5002),('c6','meera prajapati',100,5001),('c7','veer vyas',300,5002),('c8','maya mehta',200,5003);
+
+
+				
+
+(13)
+select oid,pur_amt,ord_date,order1.sid,(case when order1.sid in(5001,5002) then 'A' when order1.sid in(5003,5005) then 'B' else 'C' end) as class from order1;
+
+
+13)
+alter table order1 add column class;
+
+select oid, pur_amt , ord_date , order1.sid ,
+( 
+case 
+when order1.sid in(5001,5002) then 'A'
+when order1.sid in(5003,5005) then 'B'
+else 'C'
+end
+) as class from order1;
+
+
+14)
+select c.* , s.name from customer c join salesman s where c.sid = s.sid; 
+
+
+
+6.1)
+
+drop trigger tig_comm
+create trigger tig_comm
+before insert on salesman 
+begin
+	select
+	case 
+	when new.commission not between 0 and 1 then 
+	raise(abort,"plz enter commission between 0 and 1")
+	end;
+end;
+
+insert into salesman values(5004,'neha triwari','surat',0.2);
+
+1)create table
+create table medicine(med_id , med_name , qty , rate);
+2) insert 10 records
+insert into medicine values
+(1,'corona',2,500),
+(2,'dengyu',3,200),
+(3,'taifod',1,350),
+(4,'shitla',5,450),
+(5,'plag',2,150),
+(6,'dengyu',8,1000),
+(7,'maleriya',5,800),
+(8,'gin',6,700),
+(9,'cold',3,650),
+(10,'fever',11,200);
+
+
+3) add column total and calulate total using qty and rate
+alter table medicine add column total;
+
+sqlite> update medicine set total = qty * rate;
+sqlite> select * from medicine;
+
+select * from medicine where med_name like 'c%';
++--------+----------+-----+------+-------+
+| med_id | med_name | qty | rate | total |
++--------+----------+-----+------+-------+
+| 1      | corona   | 2   | 500  | 1000  |
+| 9      | cold     | 3   | 650  | 1950  |
++--------+----------+-----+------+-------+
+sqlite> .mode csv
+sqlite> .header on
+sqlite> .output medicine.csv
+sqlite> select * from medicine;
+
+
+
+create table marks_sheet(roll_no , name , stat_marks , dhp_marks , oops_marks );
+
+insert into marks_sheet values
+(101,'priyanshi',98,58,54),
+(102,'mansi',89,87,95),
+(103,'raha',69,74,95),
+(104,'tanisha',25,69,87),
+(105,'sujal',74,96,85),
+(106,'mena',58,54,84),
+(107,'shubh',78,87,96),
+(108,'keni',95,92,50),
+(109,'jiya',96,82,74),
+(110,'bansi',75,98,42);
+
+
+
+select * from marks_sheet;
+
+alter table marks_sheet add column total_marks;
+
+update marks_sheet set total_marks = ( stat_marks + dhp_marks + oops_marks);
+
+select * from marks_sheet;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,6 +18,13 @@ what is router ?
 => It can be reused across different parts of your application.
 
 
+--------------------------------------------------------------------
+
+nodemon => automatically referesh page
+
+morgan => jyare koi pn request kariye to aeno status code shu rakhyo hse tema kai api run thai hse , jyare request kari typre te ketna seconds and miliseconds ma run thai che ae badhu batave terminal line uuper
+
+
 
 
 
