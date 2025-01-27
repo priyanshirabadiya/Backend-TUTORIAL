@@ -113,6 +113,9 @@ update marks_sheet set total_marks = ( stat_marks + dhp_marks + oops_marks);
 
 select * from marks_sheet;
 
+select * from marks_sheet where total_marks > 250;
+
+Q.display all records using cursor.
 
 
 

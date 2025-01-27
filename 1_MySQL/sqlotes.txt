@@ -61,6 +61,7 @@ DATABASE:
 
 
 
+how to use MySQL shell = commands are here 
 
 Type '\help' or '\?' for help; '\quit' to exit.
  MySQL  JS > \sql
