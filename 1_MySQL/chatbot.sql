@@ -1,5 +1,5 @@
 -- create database chatbot;
-use chatbot;
+-- use chatbot;
 
 -- create TABLE  messages(
 -- 	id int auto_increment primary key,
@@ -13,4 +13,4 @@ use chatbot;
 
 -- insert into messages (user_message , bot_response) values ("how are you","i am fine");
 
--- select * from messages;
+select * from messages;

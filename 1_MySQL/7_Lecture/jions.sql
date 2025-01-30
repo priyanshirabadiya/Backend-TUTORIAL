@@ -28,7 +28,7 @@ create table result(
     foreign key (rno) references tblstud(rno) 
 );
 
-create table uniquet(
+create table uniquecode(
     unicode int ,
     name varchar(50) ,
     gender varchar,
