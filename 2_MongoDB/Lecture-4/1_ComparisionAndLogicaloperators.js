@@ -61,9 +61,3 @@ db.Mock2.find({ $nor: [{ id: 1 }, { id: 8 }, { "gender": "Male" }] })
 db.Mock2.find({ "gender": { $not: { $eq: "Female" } } })
 db.Mock2.find({ "id": { $not: { $gt: 5 } } })
 
-
-
-
-
-
-
