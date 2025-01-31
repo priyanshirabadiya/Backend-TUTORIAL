@@ -15,7 +15,7 @@ db.users.insertOne({
     "name": "john Doel",
     "age": 24,
     "email": "priyanshi@gmail.com"
-})
+});
 
 // insert data(multiple)
 
