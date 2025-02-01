@@ -95,7 +95,7 @@ db.newdatebase.drop()
 
 // findAndModify document  
 
-db.table1.findAndModify({query:{"age" : 55} ,update:{ age : 32 }})
+db.table1.findAndModify({ query: { "age": 55 }, update: { age: 32 } })
 
 // Simple find for reminding
 db.table1.find({ "age": { $gt: 5 } })
@@ -267,7 +267,7 @@ db.newtable.renameCollection("table1")
 db.table1.updateMany({}, { $currentDate: { "Date": true } })
 
 // new Date
-db.students.updateMany({"Date":{$exists: true}},{$set:{"Date":new Date("2024-07-15")}})
+db.students.updateMany({ "Date": { $exists: true } }, { $set: { "Date": new Date("2024-07-15") } })
 
 
 
@@ -335,6 +335,19 @@ db.arrayoperator.aggregate({ $match: { "name": "priyanshi" } },
     })
 
 
+
+db.arrayoperator.aggregate([
+    { $match: { "name": "priyanshi" } },
+    {
+        $project: {
+            name: 1,
+            gender: 1,
+            concatedArrayIs: { $concatArrays: ["$hobbies", "$hobbies2"] }
+        }
+    }
+])
+
+
 // revese array
 db.arrayoperator.aggregate({ $match: { name: "priyanshi" } },
     { $project: { name: 1, gender: 1, revesearray_is: { $reverseArray: "$hobbies" } } })
@@ -380,7 +393,7 @@ db.students.insertMany([
 
 
 // $pull : remove elements 
-db.students.updateOne({name:"Rohit"},{$pull:{"language":"Uide"}})
+db.students.updateOne({ name: "Rohit" }, { $pull: { "language": "Uide" } })
 
 db.students.updateOne({ name: "Rohit" },
     { $pull: { "personal.semesterMarks": { $lte: 75 } } }
@@ -481,13 +494,13 @@ db.students.aggregate([
 ])
 
 // strcasecmp 
-db.students.aggregate([{$project: {name:1, gender:1 , result:{$strcasecmp: ["$name","Sumit"]}}}])
+db.students.aggregate([{ $project: { name: 1, gender: 1, result: { $strcasecmp: ["$name", "Sumit"] } } }])
 
 // touppercase
-db.students.aggregate({$project: {name:1,gender:1,uppercaseofname:{$toUpper: "$name"}}})
+db.students.aggregate({ $project: { name: 1, gender: 1, uppercaseofname: { $toUpper: "$name" } } })
 
 // tolowercase
-db.students.aggregate({$project: {name:1,gender:1,lowercaseofname:{$toLower: "$name"}}})
+db.students.aggregate({ $project: { name: 1, gender: 1, lowercaseofname: { $toLower: "$name" } } })
 
 
 
