@@ -407,6 +407,7 @@ db.students.updateMany({}, { $pull: { articles: { language: "C#", tArticles: 100
 
 db.students.updateMany({}, { $set: { articles: { "language": "C#", "tArticles": 100, } } })
 
+
 db.students.updateMany(
     {},
     [
@@ -418,15 +419,12 @@ db.students.updateMany(
                         then: {
                             $concatArrays: ["$articles", [
                                 { "language": "C#", "tArticles": 100 },
-                                { "language": "Perl", "tArticles": 200 },
-                                { "language": "Java", "tArticles": 80 }
+                                { "language": "Perl", "tArticles": 200 }
                             ]]
                         },
                         else: [
-                            "$articles",
                             { "language": "C#", "tArticles": 100 },
-                            { "language": "Perl", "tArticles": 200 },
-                            { "language": "Java", "tArticles": 80 }
+                            { "language": "Perl", "tArticles": 200 }
                         ]
                     }
                 }
@@ -434,6 +432,50 @@ db.students.updateMany(
         }
     ]
 );
+
+db.students.updateMany({}, [
+    {
+        $set: {
+            articles: {
+                $cond: {
+                    if: { $isArray: "$articles" },  // Check if articles array exists
+                    then: { 
+                        $concatArrays: ["$articles", [
+                            { "language": "R", "tArticles": 100 },
+                            { "language": "Perl", "tArticles": 200 }
+                        ]] 
+                    },
+                    else: [
+                        { "language": "C#", "tArticles": 100 },
+                        { "language": "Perl", "tArticles": 200 }
+                    ]
+                }
+            }
+        }
+    }
+])
+db.students.updateMany({}, [
+    {
+        $set: {
+            articles: {
+                $cond: {
+                    if: { $isArray: "$articles" },
+                    then: {
+                        $concatArrays: ["$articles", [
+                            { "language": "R", "tArticles": 100 },
+                            { "language": "Perl", "tArticles": 200 }
+                        ]]
+                    },
+                    else: [
+                        { "language": "C#", "tArticles": 100 },
+                        { "language": "Perl", "tArticles": 200 },
+                    ]
+                }
+            }
+        }
+    }])
+
+
 
 
 // pop : This operator is used to remove the first or the last item from the array. -1:mean first element
