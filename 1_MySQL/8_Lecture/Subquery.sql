@@ -90,7 +90,7 @@ select * from tblstud_result where rno =
 -- 4) Display the students’ detail who got maximum marks in Subject 101.
 
 select * from tblstud where rno = 
-(select s101 from tblstud_result where s101 =  
+(select rno from tblstud_result where s101 =  
 ( select max(s101) from tblstud_result ));
 
 

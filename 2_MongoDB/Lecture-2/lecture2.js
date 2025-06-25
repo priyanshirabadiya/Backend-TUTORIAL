@@ -37,13 +37,13 @@ db.users.find({ "gender": "Female" })
 db.users.updateOne(
   { 'gender': 'Female' },
   { $set: { age: 56, email: "jollyt@gmail.com" } },
-  { upset: true })
+  { upsert: true })
 
 // Update Many
 db.users.updateMany(
   { 'gender': 'Female' },
   { $set: { "age": 45, "email": "women@gmail.com" } },
-  { upset: true }
+  { upsert: true }
 )
 
 // Update Many with set new values

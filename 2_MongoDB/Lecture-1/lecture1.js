@@ -17,6 +17,12 @@ db.users.insertOne({
     "email": "priyanshi@gmail.com"
 });
 
+db.users.insertOne({
+    "name" : "priyanshi",
+    "age" : 12,
+    "mail" : "priyanshi@gmail.com"
+});
+
 // insert data(multiple)
 
 db.users.insertMany([

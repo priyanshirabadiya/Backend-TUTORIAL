@@ -4,7 +4,7 @@
 // find / projection method
 // remember that in projection you can't give 0 and 1 value at same time but can can give _id means default id of mongo db as 0 value when you use 1
 
-db.Mock2.find({ "gender": "Male", "id": 5 })
+db.Mock2.find({ "gender": "Male", "id": 5 });
 db.Mock2.find({}, { "gender": 1, "id": 1 })
 db.Mock2.find({}).select({ "id": 1, "gender": 1 })
 db.Mock2.find({ $or: [{ id: 1 }, { id: 2 }] }).projection({ "first_name": 1, "last_name": 1 })
@@ -12,7 +12,7 @@ db.Mock2.find({ $or: [{ id: 1 }, { id: 2 }] }).projection({ "first_name": 1, "la
 db.Mock2.aggregate([
     {
         $project: {
-            "id": 1, "first_name": 1
+            "_id" : 0 , "first_name": 1 
         }
     }
 ])
@@ -110,33 +110,33 @@ db.Mock2.aggregate([
 
 
 
-// db.Mock2.aggregate([
-//     {
-//         $project: {
-//             gender: 1
-//         }
-//     },
-//     {
-//         $group: {
-//             _id: "$gender",
-//             total: { $sum: 1 }
-//         }
-//     },
-//     {
-//         $addFields: {
-//             gender: "$_id"
-//         }
-//     },
-//     {
-//         $project: {
-//             _id: 0
-//         }
-//     },
-//     {
-//         $sort: {
-//             total: 1
-//         }
-//     }])
+db.Mock2.aggregate([
+    {
+        $project: {
+            gender: 1
+        }
+    },
+    {
+        $group: {
+            _id: "$gender",
+            total: { $sum: 1 }
+        }
+    },
+    {
+        $addFields: {
+            gender: "$_id"
+        }
+    },
+    {
+        $project: {
+            _id: 0
+        }
+    },
+    {
+        $sort: {
+            total: 1
+        }
+    }])
 
 
 
@@ -293,18 +293,3 @@ db.universities.aggregate([
     { $out : 'aggResults' }
 ])
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
