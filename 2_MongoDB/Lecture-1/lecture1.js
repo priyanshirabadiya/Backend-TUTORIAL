@@ -74,6 +74,4 @@ db.Client_Master.insertMany([
     "C0002", "Mamta Muzumdar", "Madras", 780001, "Tamil nadu", 0
 ])
 
-
 db.users.find({});
-
