@@ -115,15 +115,3 @@ server.get("/user/:id" , logStuff , (req,res,next) => {
 server.listen(3001, () => {
     console.log('server strt at http://localhost:3001 ');
 })
-
-
-
-
-
-
-
-
-
-
-
-

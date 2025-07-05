@@ -18,7 +18,7 @@ app.get("/", (req,res)=> {
     users.push(req.body);
     // res.json({message:"Successfully added..."});
     res.send(users);
-})
+});
 
 // READ - get all users
 
