@@ -13,5 +13,3 @@ again in cmd
 4] close cmd
 
 5] mongosh
-
-
